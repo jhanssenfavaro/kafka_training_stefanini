@@ -1,1 +1,1 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"D:/Jhanssen/Cursos/Stefanini/Zookeeper_Kafka/scripts","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"E:/Jhanssen/Cursos/Stefanini/kafka_training_stefanini/scripts","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
