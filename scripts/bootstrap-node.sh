@@ -13,7 +13,7 @@ echo "
 Host *
     StrictHostKeyChecking no
 " > ~/.ssh/config
-pip install --upgrade pip
+pip3 install --upgrade pip
 pip3 install ansible==2.9.5
 echo "export  PATH=\$PATH:/root/.local/bin" >> ~/.profiles 
 echo "export  PATH=\$PATH:/root/.local/bin" >> ~/.bashrc
