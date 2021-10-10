@@ -1,0 +1,7 @@
+.vagrant\*
+scripts/.vagrant*
+scripts/.vagrant/machines
+scripts/.vagrant/machines/kafkalab1/virtualbox/action_set_name
+scripts/.vagrant/machines/kafkalab1/virtualbox/action_provision
+scripts/.vagrant/machines/kafkalab1/virtualbox/id
+scripts/.vagrant/machines/kafkalab1/virtualbox/index_uuid
