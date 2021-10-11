@@ -51,7 +51,12 @@ Vagrant.configure("2") do |config|
          file.destination    = '/tmp/vagrant'
       end
       config.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
+     
       config.vm.provision :shell, path: "bootstrap-node.sh"
+      if config.vm.hostname = 'kafkalab1'
+        config.vm.provision :shell, :inline => "sudo -i ansible -m shell -a 'whoami' -i kafkalab1, all -u vagrant --extra-vars 'ansible_ssh_pass=vagrant' --become-user root -b", run: "always"
+        config.vm.provision :shell, :inline => "echo 'Provisioned succesfully'"
+      end
       # config.vm.provision :ansible do |ansible|
       #   ansible.verbose = "v"
       #   ansible.playbook = "playbook.yml"

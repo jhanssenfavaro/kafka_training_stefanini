@@ -7,7 +7,8 @@ echo "
 192.168.29.4  kafkalab3
 " > /etc/hosts
 if [[ `hostname` == 'kafkalab1' ]]; then
-    sudo yum install -y centos-release-ansible-29 python3 git curl sshpass rsync
+    sudo yum install -y centos-release-ansible-29 python3 git curl rsync
+    sudo yum install -y sshpass
     mkdir ~/.ssh
     touch ~/.ssh/config
     echo "
@@ -27,11 +28,14 @@ if [[ `hostname` == 'kafkalab1' ]]; then
     # git clone https://github.com/confluentinc/examples.git
     # git clone https://github.com/confluentinc/cp-all-in-one.git
     # cd cp-all-in-one/cp-all-in-one
+    #Validating ansible
+    source ~/.bashrc
+    # ansible --version
     cd ~/
     git clone https://github.com/confluentinc/cp-ansible.git
     cd ~/cp-ansible/
 elif [[ `hostname` != 'kafkalab1' ]]; then
-    sudo yum install -y python3 git curl sshpass rsync
+    sudo yum install -y python3 git curl rsync
     mkdir ~/.ssh
     touch ~/.ssh/config
     echo "
