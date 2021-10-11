@@ -253,9 +253,15 @@ zookeeper:
   #     - source_path: /path/to/file.txt
   #       destination_path: /tmp/file.txt
   hosts:
-    localhost:
+    kafkalab1:
       ## By default the first host will get zookeeper id=1, second gets id=2. Set zookeeper_id to customize
       zookeeper_id: 1
+    kafkalab2:
+      ## By default the first host will get zookeeper id=1, second gets id=2. Set zookeeper_id to customize
+      zookeeper_id: 2
+    kafkalab3:
+      ## By default the first host will get zookeeper id=1, second gets id=2. Set zookeeper_id to customize
+      zookeeper_id: 3
 
 kafka_broker:
   ## To set variables on all kafka_broker hosts, use the vars block here
@@ -298,8 +304,18 @@ kafka_broker:
   hosts:
       ## Properties can also be applied on a host by host basis.
       ## In the below example we configure a Multi-Region Clusters by setting the following properties on each host:
-    localhost:
+    kafkalab1:
       broker_id: 100
+      # kafka_broker_custom_properties:
+      #   broker.rack: us-east-1b
+      #   replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
+    kafkalab2:
+      broker_id: 200
+      # kafka_broker_custom_properties:
+      #   broker.rack: us-east-1b
+      #   replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
+    kafkalab3:
+      broker_id: 300
       # kafka_broker_custom_properties:
       #   broker.rack: us-east-1b
       #   replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
