@@ -7,15 +7,15 @@ echo "
 192.168.29.4  kafkalab3
 " > /etc/hosts
 if [[ `hostname` == 'kafkalab1' ]]; then
-    sudo yum install -y centos-release-ansible-29 python3 git curl
+    sudo yum install -y centos-release-ansible-29 python3 git curl sshpass rsync
     mkdir ~/.ssh
     touch ~/.ssh/config
     echo "
     Host *
         StrictHostKeyChecking no
     " > ~/.ssh/config
-    pip3 install --upgrade pip
-    pip3 install ansible==2.9.5
+    sudo pip3 install --upgrade pip 
+    sudo pip3 install ansible==2.9.5 --user
     echo "export  PATH=\$PATH:/root/.local/bin" >> ~/.profiles 
     echo "export  PATH=\$PATH:/root/.local/bin" >> ~/.bashrc
     source ~/.bashrc
@@ -31,7 +31,7 @@ if [[ `hostname` == 'kafkalab1' ]]; then
     git clone https://github.com/confluentinc/cp-ansible.git
     cd ~/cp-ansible/
 elif [[ `hostname` != 'kafkalab1' ]]; then
-    sudo yum install -y python3 git curl
+    sudo yum install -y python3 git curl sshpass rsync
     mkdir ~/.ssh
     touch ~/.ssh/config
     echo "

@@ -50,6 +50,7 @@ Vagrant.configure("2") do |config|
          file.source     = './keys/vagrant'
          file.destination    = '/tmp/vagrant'
       end
+      config.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;", run: "always"
       config.vm.provision :shell, path: "bootstrap-node.sh"
       # config.vm.provision :ansible do |ansible|
       #   ansible.verbose = "v"
